@@ -1,5 +1,5 @@
     <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-        <CheckBoxPreference android:key="enable" android:disableDependentsState="true" android:title="Network fixup"/>
-        <EditTextPreference android:title="MAC Address" android:dialogMessage="Pls set macaddr" android:key="macaddr" android:defaultValue="@string/defaddr" android:dialogTitle="MAC address"/>
-        <EditTextPreference android:title="Hostname" android:dialogMessage="Set the hostname" android:key="hostname" android:defaultValue="glesia" android:dialogTitle="Hostname"/>
+        <CheckBoxPreference android:key="enable" android:disableDependentsState="false" android:title="Enable network fixup"/><EditTextPreference android:title="Interface name" android:dialogMessage="Fill in one, please" android:key="iface" android:defaultValue="eth0" android:dialogTitle="Interface name" android:dependency="enable" android:selectable="true"/><EditTextPreference android:title="MAC Address" android:dialogMessage="Pls set macaddr" android:key="macaddr" android:defaultValue="@string/defaddr" android:dialogTitle="MAC address" android:dependency="enable"/>
+        <EditTextPreference android:title="Hostname" android:dialogMessage="Set the hostname" android:key="hostname" android:defaultValue="glesia" android:dialogTitle="Hostname" android:dependency="enable"/>
+        <CheckBoxPreference android:enabled="false" android:key="n" android:title="(c) Necromant 2012 :: http://ncrmnt.org/"/>
     </PreferenceScreen>

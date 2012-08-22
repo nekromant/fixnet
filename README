@@ -1,0 +1,8 @@
+Ever being tired that android has a shitty way to set the hostname as
+android_someshittyhex? Does your china-originated tablet give you a 
+random mac each boot time?
+Well, this is the solution. Requires busybox and root though. 
+It sets the mac and the hostname at boot, so that your dhcp server on
+the router can properly handle this device. 
+
+
