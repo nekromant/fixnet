@@ -1,5 +1,56 @@
-    <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-        <CheckBoxPreference android:key="enable" android:disableDependentsState="false" android:title="Enable network fixup"/><EditTextPreference android:title="Interface name" android:dialogMessage="Fill in one, please" android:key="iface" android:defaultValue="eth0" android:dialogTitle="Interface name" android:dependency="enable" android:selectable="true"/><EditTextPreference android:title="MAC Address" android:dialogMessage="Pls set macaddr" android:key="macaddr" android:defaultValue="@string/defaddr" android:dialogTitle="MAC address" android:dependency="enable"/>
-        <EditTextPreference android:title="Hostname" android:dialogMessage="Set the hostname" android:key="hostname" android:defaultValue="glesia" android:dialogTitle="Hostname" android:dependency="enable"/>
-        <CheckBoxPreference android:enabled="false" android:key="n" android:title="(c) Necromant 2012 :: http://ncrmnt.org/"/>
-    </PreferenceScreen>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <CheckBoxPreference
+        android:disableDependentsState="false"
+        android:key="enable_hostfixup"
+        android:summaryOff="Host name will not be changed on boot"
+        android:summaryOn="Host name will be fixed at boot"
+        android:title="Enable hostname fixup" />
+
+    <EditTextPreference
+        android:defaultValue="glesia"
+        android:dependency="enable_hostfixup"
+        android:dialogMessage="Set the hostname"
+        android:dialogTitle="Hostname"
+        android:key="hostname"
+        android:title="Hostname" />
+
+    <CheckBoxPreference
+        android:key="enable_macfixup"
+        android:summaryOff="MAC address will NOT be touched next boot"
+        android:summaryOn="MAC address will be set on boot"
+        android:title="Enable mac address fixup" />
+
+    <EditTextPreference
+        android:defaultValue="eth0"
+        android:dependency="enable_macfixup"
+        android:dialogMessage="Fill in one, please"
+        android:dialogTitle="Interface name"
+        android:key="iface"
+        android:selectable="true"
+        android:title="Interface name" />
+    <EditTextPreference
+        android:defaultValue="@string/defaddr"
+        android:dependency="enable_macfixup"
+        android:dialogMessage="Pls set macaddr"
+        android:dialogTitle="MAC address"
+        android:key="macaddr"
+        android:title="MAC Address" />
+
+    <CheckBoxPreference
+        android:key="enable_scriptfixup"
+        android:summaryOff="Custom script will NOT be executed next boot"
+        android:summaryOn="Custom script will be executed next boot"
+        android:title="Custom fixup via a shell script" />
+
+    <EditTextPreference
+        android:dependency="enable_scriptfixup"
+        android:key="script"
+        android:title="Path to a script or a shell command" />
+
+    <CheckBoxPreference
+        android:enabled="false"
+        android:key="n"
+        android:title="(c) Necromant 2012 :: http://ncrmnt.org/" />
+
+</PreferenceScreen>
